@@ -81,10 +81,10 @@ ReactUMGComponent.Mixin = {
     this._rootNodeID = rootID;
 
     var umgRoot = parent.ueobj ? parent.ueobj : UmgRoots[rootID]; 
-    if (umgRoot instanceof JavascriptWidget) {
+    if (umgRoot instanceof Unreal.JavascriptWidget) {
       umgRoot = umgRoot.WidgetTree.RootWidget
     }
-    var outer = Root.GetEngine ? JavascriptLibrary.CreatePackage(null,'/Script/Javascript') : GWorld
+    var outer = Root.GetEngine ? Unreal.JavascriptLibrary.CreatePackage(null,'/Script/Javascript') : GWorld
 
     this.ueobj = this._typeThunk.createUmgElement(
       this._currentElement,
@@ -94,7 +94,7 @@ ReactUMGComponent.Mixin = {
         for (var key in props) {
           this.updateProperty(widget, props[key], key);
         }
-        if (widget instanceof JavascriptWidget) {
+        if (widget instanceof Unreal.JavascriptWidget) {
           widget.AddChild(new SizeBox(outer))
         }
         if (umgRoot['AddChild'] != null) {

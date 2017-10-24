@@ -221,7 +221,7 @@ const ReactUMGMount = {
   findNode(instance) {
     return NodeMap[instance]
   }, 
-  wrap(nextElement, outer = Root.GetEngine ? JavascriptLibrary.CreatePackage(null,'/Script/Javascript') : GWorld) {
+  wrap(nextElement, outer = Root.GetEngine ? Unreal.JavascriptLibrary.CreatePackage(null,'/Script/Javascript') : GWorld) {
     let widget = Root.GetEngine ? new Unreal.JavascriptWidget(outer) : GWorld.CreateWidget(JavascriptWidget);
     let instance = ReactUMGMount.render(nextElement, widget);
     return ReactUMGMount.findNode(instance) 
