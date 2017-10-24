@@ -1,4 +1,4 @@
-const outer = JavascriptLibrary.CreatePackage(null, '/Script/Javascript');
+const outer = Unreal.JavascriptLibrary.CreatePackage(null, '/Script/Javascript');
 
 function maybe_create_group(path) {
     let groups = global.$groups = global.$groups || {};
@@ -19,7 +19,7 @@ function maybe_create_group(path) {
 
 function makeTab(opts, tab_fn, del_fn) {
     opts = opts || {};
-    var tab = new JavascriptEditorTab();
+    var tab = new Unreal.JavascriptEditorTab();
     tab.TabId = opts.TabId || 'TestJSTab';
     tab.Role = opts.Role || 'NomadTab';
     tab.DisplayName = opts.DisplayName || '안녕하세요!';
@@ -85,7 +85,7 @@ function tabSpawner(opts, main) {
 
 
 function windowSpawner(opts, design) {
-    let container = new JavascriptWindow(outer);
+    let container = new Unreal.JavascriptWindow(outer);
     container.SizingRule = EJavascriptSizingRule.Autosized;
     container.Title = opts.Title || 'Window'
     container.AddChild(design());       

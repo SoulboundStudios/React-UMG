@@ -66,8 +66,8 @@ ReactUMGComponent.Mixin = {
     this._typeThunk.applyProperty(widget,value, key);
   },
   sync() {
-    JavascriptWidget.CallSynchronizeProperties(this.ueobj)
-    JavascriptWidget.CallSynchronizeProperties(this.ueobj.Slot)
+    Unreal.JavascriptWidget.CallSynchronizeProperties(this.ueobj)
+    Unreal.JavascriptWidget.CallSynchronizeProperties(this.ueobj.Slot)
   },
   mountComponent(
     transaction, // for creating/updating

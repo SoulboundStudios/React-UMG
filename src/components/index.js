@@ -2,7 +2,7 @@
 
 const _ = require('lodash');
 const ReactUMGClassMap = require('./ReactUMGClassMap');
-const ClassMap = JavascriptLibrary.GetDerivedClasses(Widget, [], true)
+const ClassMap = Unreal.JavascriptLibrary.GetDerivedClasses(Unreal.Widget, [], true)
 const {set_attrs, set_attr} = require('./set_attrs');
 
 const mappingTable = {
@@ -33,7 +33,7 @@ function registerComponent(key, cls) {
 }
 
 ClassMap.Results.forEach(cls => {
-  const key = _.first(_.last(JavascriptLibrary.GetClassPathName(cls).split('.')).split('_'));
+  const key = _.first(_.last(Unreal.JavascriptLibrary.GetClassPathName(cls).split('.')).split('_'));
   if (mappingTable[key]) {
     registerComponent(mappingTable[key], cls)
   }
